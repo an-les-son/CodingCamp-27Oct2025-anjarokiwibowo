@@ -6,42 +6,41 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>TODO List</title>
 </head>
-<body class="bg-gray-900">
+<body class="bg-mainbg font-Albert">
     <div class="flex flex-col justify-between w-[100vw] h-[100vh] p-4">
         <div></div>
-        <div class="w-[40%] bg-gray-600 border-white border-2 rounded-2xl p-6 mt-48 m-auto">
+        <div class="w-[40%] bg-card border-2 rounded-2xl p-6 mt-48 m-auto border-border">
         <p class="font-bold text-white text-center text-4xl">Todo List</p>
         <div class="mt-5 flex justify-between">
-            <input class="py-1 px-3 bg-white rounded-[8px] w-[43%]" type="text" placeholder="Add a todo...">
-            <input class="py-1 px-3 bg-white rounded-[8px] w-[43%]" type="date" placeholder="mm/dd/yyyy">
-            <button class="py-1 px-3 bg-white rounded-[8px] w-[10%]">+</button>
+            <input class="py-1 px-3 bg-mainbg rounded-[8px] w-[43%] placeholder:text-white text-sm" type="text" placeholder="Add a todo..." style="border: 2px solid #485270;">
+            <input class="py-1 px-3 bg-mainbg  border-border rounded-[8px] w-[43%] text-white text-sm" type="date" placeholder="mm/dd/yyyy" style="border: 2px solid #485270;">
+            <button class="bg-button rounded-[8px] w-[48px] h-[36px] text-mainbg text-3xl">+</button>
         </div>
-        <div class="mt-5 flex justify-between">
-            <button class="py-1 px-3 bg-white rounded-[8px] w-[10%]">Filter</button>
-            <button class="py-1 px-3 bg-white rounded-[8px] w-[24%]">Delete All</button>
+        <div class="mt-5 flex justify-between px-3">
+            <button class="py-1 px-3 bg-mainbg rounded-[8px] w-[64px] text-white font-semibold">Filter</button>
+            <button class="py-1 px-3 bg-button rounded-[8px] w-[128px] text-mainbg font-semibold">Delete All</button>
         </div>
-        <table class="mt-5 bg-white w-[100%] rounded-[8px] text-center">
-            <thead class="border-b-2">
+            <table class="mt-5 bg-mainbg w-[100%] rounded-[8px] text-center text-white text-sm">
+            <thead">
                 <tr>
-                    <th>Task</th>
-                    <th>Due Date</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th class="py-2">Task</th>
+                    <th class="py-2">Due Date</th>
+                    <th class="py-2">Status</th>
+                    <th class="py-2">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>lorem</td>
-                    <td>lorem</td>
-                    <td>lorem</td>
-                    <td>lorem</td>
+                    <td class="py-2">lorem</td>
+                    <td class="py-2">lorem</td>
+                    <td class="py-2">lorem</td>
+                    <td class="py-2">lorem</td>
                 </tr>
             </tbody>
         </table>
-        
     </div>
         <div>
-            <p class="text-white text-xs text-center">Mini Project - Coding Camp Software Engineer RevoU | Anjar Oki Wibowo | 28/10/2025</p>
+            <p class="text-white text-xs text-center">Mini Project - Coding Camp Software Engineer <a href="https://www.revou.co/id" target="_blank">RevoU</a><br/>© Anjar Oki Wibowo, 28/10/2025</p>
         </div>
     </div>
     
