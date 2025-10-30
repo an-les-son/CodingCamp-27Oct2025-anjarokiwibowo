@@ -4,40 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>To do list</title>
+    <title>Todo list</title>
 </head>
 <body class="bg-mainbg font-Albert">
-    <div class="flex flex-col justify-between w-screen h-screen p-4">
+    <!-- Layout -->
+    <section class="flex flex-col justify-between w-screen h-screen p-4">
+        
         <div></div>
-        <div class="w-[40%] bg-card border-2 rounded-2xl p-6 m-auto border-border shadow-xl shadow-button/10 mt-40">
-        <p class="font-bold text-white text-center text-4xl">Todo List</p>
-        <form class="mt-5 flex justify-between">
-            <input id="task" class="py-1 px-3 bg-mainbg rounded-lg w-[43%] placeholder:text-white text-white text-sm" type="text" placeholder="Add a todo..." style="border: 2px solid #8591F3;">
-            <input id="dueDate" class="py-1 px-3 bg-mainbg  border-border rounded-lg w-[43%] text-white text-sm" type="date" placeholder="mm/dd/yyyy" style="border: 2px solid #8591F3;">
-            <button id="addBtn" class="bg-button rounded-lg w-12 h-9 text-mainbg text-3xl cursor-pointer hover:border-amber-50 hover:border-2">+</button>
-        </form>
-        <div class="mt-5 flex justify-between px-3 text-sm">
-            <button id="filBtn" class="py-1 px-3 bg-mainbg rounded-lg w-[72px] text-white font-semibold cursor-pointer hover:border-amber-50 hover:border-2 box-content">Filter</button>
-            <button id="delBtn" class="py-1 px-3 bg-button rounded-lg w-32 text-mainbg font-semibold cursor-pointer hover:border-amber-50 hover:border-2 box-content">Delete All</button>
-        </div>
-            <table class="mt-5 bg-mainbg w-full rounded-lg text-center text-white text-xs">
-            <thead>
-                <tr>
-                    <th class="py-2">Task</th>
-                    <th class="py-2">Due Date</th>
-                    <th class="py-2">Status</th>
-                    <th class="py-2">Actions</th>
-                </tr>
-            </thead>
-            <tbody id="todoTable">
-            </tbody>
-        </table>
-    </div>
-        <div class="text-white mt-40 pb-10">
-            <p class="text-xs text-center">Mini Project - Coding Camp Software Engineer <a href="https://www.revou.co/id" target="_blank" class="font-bold">RevoU</a><br/><a href="https://okiwibbo.web.app/" target="_blank" class="font-bold">© Anjar Oki Wibowo</a>,</p>
-            <p class="w-28 text-center m-auto text-[11px] mt-3 border border-white rounded-lg">27 October 2025</p>
-        </div>
-    </div>
+
+        <!-- Main -->
+        <main class="flex flex-col items-center w-[80%] md:w-[40%] bg-card border-2 rounded-2xl px-5 py-6 md:p-6 m-auto border-border shadow-xl shadow-button/10 mt-40">
+
+            <!-- Baris Pertama Judul -->
+            <p class="font-bold text-white text-center text-4xl">Todo List</p>
+
+            <!-- Baris Kedua Form -->
+            <form class="mt-5 flex max-md:flex-col w-full px-3 items-center md:justify-between gap-2">
+                <!-- Input Todo -->
+                <input id="task" class="py-1 px-3 bg-mainbg rounded-lg w-full md:w-[43%] placeholder:text-white text-white text-sm" type="text" placeholder="Add a todo..." style="border: 2px solid #8591F3;">
+                <!-- Input Date -->
+                <input id="dueDate" class="py-1 px-3 bg-mainbg  border-border rounded-lg w-full md:w-[43%] text-white text-sm" type="date" placeholder="mm/dd/yyyy" style="border: 2px solid #8591F3;">
+                <!-- Button Tambah -->
+                <button id="addBtn" class="bg-button self-end rounded-lg md:w-12 py-1 md:py-1.5 max-md:px-4 text-mainbg text-sm font-semibold cursor-pointer hover:border-amber-50 hover:border-2">Add</button>
+            </form>
+
+            <!-- Baris ketiga Button Filter & Delete All -->
+            <section class="mt-5 flex justify-between w-full px-3 text-sm">
+                <!-- Button Filter -->
+                <button id="filBtn" class="py-1 px-3 bg-mainbg rounded-lg md:w-[72px] text-white font-semibold cursor-pointer hover:border-amber-50 hover:border-2 box-content">Filter</button>
+                <!-- Button Delete All -->
+                <button id="delBtn" class="py-1 px-3 bg-button rounded-lg md:w-32 text-mainbg font-semibold cursor-pointer hover:border-amber-50 hover:border-2 box-content">Delete All</button>
+            </section>
+            
+            <!-- Baris keempat Tabel -->
+            <table class="mt-5 bg-mainbg w-full rounded-lg text-center text-white text-[9px] md:text-xs">
+                <thead>
+                    <tr>
+                        <th class="py-2">Task</th>
+                        <th class="py-2">Due Date</th>
+                        <th class="py-2">Status</th>
+                        <th class="py-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="todoTable">
+                </tbody>
+            </table>
+        </main>
+
+    <!-- Footer -->
+        <footer class="text-white mt-40 pb-10">
+            <p class="text-xs text-center">Mini Project - Coding Camp Software Engineer <a href="https://www.revou.co/id" target="_blank" class="font-bold">RevoU</a></p>
+            <p class="w-44 text-center m-auto text-[11px] mt-1 border border-white rounded-lg">© 2025 Anjar - Todo list Website</p>
+        </footer>
+
+    </section>
 
 <script src="./js/script.js"></script>
 </body>
