@@ -129,19 +129,17 @@ function showTodo() {
   const todoTable = document.getElementById("todoTable");
   const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-  // Kosongkan tabel dulu
   todoTable.innerHTML = "";
 
   if (todos.length === 0) {
     todoTable.innerHTML = `
       <tr>
-        <td colspan="4" class="pt-2 pb-7 text-border">No task found</td>
+        <td colspan="4" class="pt-2 pb-7 text-gray-400">No task found</td>
       </tr>
     `;
     return;
   }
 
-  // Tampilkan data dari localStorage
   todos.forEach((todo, index) => {
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -156,7 +154,6 @@ function showTodo() {
   });
 }
 
-// 🔥 Fungsi untuk menambah todo baru
 function addTodo() {
   const taskInput = document.getElementById("task");
   const dateInput = document.getElementById("dueDate");
@@ -168,50 +165,33 @@ function addTodo() {
     return;
   }
 
-  // Format tanggal
   const [year, month, day] = dateValue.split("-");
   const dueDate = `${day}/${month}/${year}`;
 
-  // 🔍 Hitung status berdasarkan tanggal
   const today = new Date();
   const due = new Date(`${year}-${month}-${day}`);
-
-  // Hapus waktu dari perbandingan (biar fokus ke tanggal saja)
   today.setHours(0, 0, 0, 0);
   due.setHours(0, 0, 0, 0);
 
   let status = "";
   const oneDay = 24 * 60 * 60 * 1000;
-  const diff = (due - today) / oneDay; // selisih hari
+  const diff = (due - today) / oneDay;
 
-  if (diff < 0) {
-    status = "Done"; // sudah lewat
-  } else if (diff === 0) {
-    status = "Proses"; // hari ini
-  } else {
-    status = "Waiting"; // besok
-  }
+  if (diff < 0) status = "Done";
+  else if (diff === 0) status = "Proses";
+  else status = "Waiting";
 
-  const newTodo = {
-    task: task,
-    dueDate: dueDate,
-    status: status,
-    actions: ""
-  };
-
+  const newTodo = { task, dueDate, status };
   const todos = JSON.parse(localStorage.getItem("todos")) || [];
   todos.push(newTodo);
+
   localStorage.setItem("todos", JSON.stringify(todos, null, 2));
 
-  // Reset input
   taskInput.value = "";
   dateInput.value = "";
-
-  // Perbarui tabel
   showTodo();
 }
 
-// 🔥 Fungsi hapus data
 function delTodo(index) {
   const todos = JSON.parse(localStorage.getItem("todos")) || [];
   todos.splice(index, 1);
@@ -219,8 +199,42 @@ function delTodo(index) {
   showTodo();
 }
 
-// Jalankan saat tombol Add diklik
-document.getElementById("addBtn").addEventListener("click", addTodo);
+// 🗂️ Filter (Urutkan berdasarkan tanggal terdekat)
+function filterTodo() {
+  const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-// Jalankan saat halaman dibuka
+  todos.sort((a, b) => {
+    const [dayA, monthA, yearA] = a.dueDate.split("/");
+    const [dayB, monthB, yearB] = b.dueDate.split("/");
+    const dateA = new Date(`${yearA}-${monthA}-${dayA}`);
+    const dateB = new Date(`${yearB}-${monthB}-${dayB}`);
+    return dateA - dateB; // ascending
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todos));
+  showTodo();
+}
+
+// 🗑️ Hapus semua data
+function deleteAllTodo() {
+  const konfirmasi = confirm("Yakin ingin menghapus semua data?");
+  if (konfirmasi) {
+    localStorage.removeItem("todos");
+    showTodo();
+    alert("Semua data telah dihapus!");
+  }
+}
+
+// 🔗 Hubungkan tombol
+const addBtn = document.getElementById("addBtn");
+const filBtn = document.getElementById("filBtn");
+const delBtn = document.getElementById("delBtn");
+
+addBtn.addEventListener("click", addTodo);
+filBtn.addEventListener("click", filterTodo);
+delBtn.addEventListener("click", deleteAllTodo);
+
+// 🚀 Tampilkan data saat halaman dimuat
 showTodo();
+
+
