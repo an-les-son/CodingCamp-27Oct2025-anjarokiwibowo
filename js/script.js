@@ -1,9 +1,11 @@
+// Function untuk menampilkan data todo
 function showTodo() {
   const todoTable = document.getElementById("todoTable");
   const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
   todoTable.innerHTML = "";
 
+  // validasi data
   if (todos.length === 0) {
     todoTable.innerHTML = `
       <tr>
@@ -20,13 +22,14 @@ function showTodo() {
       <td class="py-2">${todo.dueDate}</td>
       <td class="py-2">${todo.status}</td>
       <td class="py-2">
-        <button onclick="delTodo(${index})" class="bg-button rounded-lg px-2 py-1 font-semibold text-mainbg cursor-pointer hover:border-amber-50 hover:border-2">Delete</button>
+        <button onclick="delTodo(${index})" class="bg-[#8591F3] rounded-lg px-2 py-1 font-semibold text-[#0F1729] cursor-pointer hover:border-amber-50 hover:border-2">Delete</button>
       </td>
     `;
     todoTable.appendChild(row);
   });
 }
 
+// Function untuk menambahkan data todo ke dalam localstorage browser
 function addTodo() {
   const taskInput = document.getElementById("task");
   const dateInput = document.getElementById("dueDate");
@@ -65,6 +68,7 @@ function addTodo() {
   showTodo();
 }
 
+// Function untuk delete action (1 data todo berada di dalam tabel)
 function delTodo(index) {
   const todos = JSON.parse(localStorage.getItem("todos")) || [];
   todos.splice(index, 1);
@@ -72,7 +76,7 @@ function delTodo(index) {
   showTodo();
 }
 
-//Filter (Urutkan berdasarkan tanggal terdekat)
+// Function Filter (Urutkan berdasarkan tanggal terdekat)
 function filterTodo() {
   const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
@@ -88,7 +92,7 @@ function filterTodo() {
   showTodo();
 }
 
-//Hapus semua data
+//Hapus semua data di localstorage browser
 function deleteAllTodo() {
   const konfirmasi = confirm("Are you sure you want to delete all?");
   if (konfirmasi) {

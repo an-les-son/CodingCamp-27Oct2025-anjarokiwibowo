@@ -3,41 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="./css/style.css">
-    <title>Todo list</title>
+    <title>Todo List</title>
 </head>
-<body class="bg-mainbg font-Albert">
+<body>
     <!-- Layout -->
     <section class="flex flex-col justify-between w-screen h-screen p-4">
         
         <div></div>
 
         <!-- Main -->
-        <main class="flex flex-col items-center w-[80%] md:w-[40%] bg-card border-2 rounded-2xl px-5 py-6 md:p-6 m-auto border-border shadow-xl shadow-button/10 mt-40">
+        <main class="flex flex-col items-center w-[80%] md:w-[40%] bg-[#3A425B] border-2 rounded-2xl px-5 py-6 md:p-6 m-auto border-[#485270] shadow-xl shadow-[#8591F3]/10 mt-40">
 
             <!-- Baris Pertama Judul -->
             <p class="font-bold text-white text-center text-4xl">Todo List</p>
 
             <!-- Baris Kedua Form -->
-            <form class="mt-5 flex max-md:flex-col w-full px-3 items-center md:justify-between gap-2">
+            <form class="mt-5 flex max-md:flex-col w-full items-center md:justify-between gap-2">
                 <!-- Input Todo -->
-                <input id="task" class="py-1 px-3 bg-mainbg rounded-lg w-full md:w-[43%] placeholder:text-white text-white text-sm" type="text" placeholder="Add a todo..." style="border: 2px solid #8591F3;">
+                <input id="task" class="py-1 px-3 bg-[#0F1729] rounded-lg w-full md:w-[43%] placeholder:text-white max-md:h-9 text-white text-[9px] md:text-sm" type="text" placeholder="Add a todo..." style="border: 2px solid #8591F3;">
                 <!-- Input Date -->
-                <input id="dueDate" class="py-1 px-3 bg-mainbg  border-border rounded-lg w-full md:w-[43%] text-white text-sm" type="date" placeholder="mm/dd/yyyy" style="border: 2px solid #8591F3;">
+                <input id="dueDate" class="py-1 px-3 bg-[#0F1729]  border-[#485270] rounded-lg w-full md:w-[43%] max-md:h-9 text-white text-[9px] md:text-sm" type="date" placeholder="dd/mm/yyyy" style="border: 2px solid #8591F3;">
                 <!-- Button Tambah -->
-                <button id="addBtn" class="bg-button self-end rounded-lg md:w-12 py-1 md:py-1.5 max-md:px-4 text-mainbg text-sm font-semibold cursor-pointer hover:border-amber-50 hover:border-2">Add</button>
+                <button id="addBtn" class="bg-[#8591F3] self-end max-md:mr-3 rounded-lg md:w-12 py-1 md:py-1.5 max-md:px-4 text-[#0F1729] text-sm font-semibold cursor-pointer hover:border-amber-50 hover:border-2">Add</button>
             </form>
 
             <!-- Baris ketiga Button Filter & Delete All -->
             <section class="mt-5 flex justify-between w-full px-3 text-sm">
                 <!-- Button Filter -->
-                <button id="filBtn" class="py-1 px-3 bg-mainbg rounded-lg md:w-[72px] text-white font-semibold cursor-pointer hover:border-amber-50 hover:border-2 box-content">Filter</button>
+                <button id="filBtn" class="py-1 px-3 bg-[#0F1729] rounded-lg md:w-[72px] text-white font-semibold cursor-pointer hover:border-amber-50 hover:border-2 box-content">Filter</button>
                 <!-- Button Delete All -->
-                <button id="delBtn" class="py-1 px-3 bg-button rounded-lg md:w-32 text-mainbg font-semibold cursor-pointer hover:border-amber-50 hover:border-2 box-content">Delete All</button>
+                <button id="delBtn" class="py-1 px-3 bg-[#8591F3] rounded-lg md:w-32 text-[#0F1729] font-semibold cursor-pointer hover:border-amber-50 hover:border-2 box-content">Delete All</button>
             </section>
             
             <!-- Baris keempat Tabel -->
-            <table class="mt-5 bg-mainbg w-full rounded-lg text-center text-white text-[9px] md:text-xs">
+            <table class="mt-5 bg-[#0F1729] w-full rounded-lg text-center text-white text-[9px] md:text-xs">
                 <thead>
                     <tr>
                         <th class="py-2">Task</th>
@@ -53,12 +54,14 @@
 
     <!-- Footer -->
         <footer class="text-white mt-40 pb-10">
-            <p class="text-xs text-center">Mini Project - Coding Camp Software Engineer <a href="https://www.revou.co/id" target="_blank" class="font-bold">RevoU</a></p>
-            <p class="w-44 text-center m-auto text-[11px] mt-1 border border-white rounded-lg">© 2025 Anjar - Todo list Website</p>
+            <p class="text-xs text-center">Mini Project</p>
+            <p class="text-xs text-center">Coding Camp Software Engineer <a href="https://www.revou.co/id" target="_blank" class="font-bold">RevoU</a></p>
+            <p class="w-44 text-center m-auto text-[11px] mt-2 border border-white rounded-lg">© 2025 <a href="https://okiwibbo.web.app/" target="_blank">Anjar</a> - Todo list Website</p>
         </footer>
 
     </section>
 
 <script src="./js/script.js"></script>
+    
 </body>
 </html>
